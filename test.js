@@ -53,9 +53,6 @@ function removeVowels(str){
     console.log(result)
 }
 
-
-
-
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and fitler to double and then filter the odd numbers).
 Examples:
@@ -94,6 +91,7 @@ function extractKey(arr, key){
     console.log(newArrData)
 }
 
+
 /*
 Write a function called extractValue which accepts an array of objects and a key and returns a new array with the value of each object at the key.
 Examples:
@@ -119,13 +117,13 @@ function vowelCount(str){
     str = str.toLowerCase()
     let arrVocales = str.match(/[aeiou]/gi)
     let result={}
-    arrVocales.forEach(element => {
+    if (arrVocales) {
+        arrVocales.forEach(element => {
         result[element] = (result[element]||0)+1
-    });
+        });
+    }    
     console.log(result)
 }
-
-
 
 /*
 Write a function called hasNoDuplicates which accepts an array and returns true if there are no duplicate values (more than one element in the array that has the same value as another). If there are any duplicates, the function should return false.
@@ -172,7 +170,9 @@ Examples:
     partition(names, isLongerThanThreeCharacters) // [['Elie', 'Colt', 'Matt'], ['Tim']]
 */
 
-function partition(arr, callback){  
+function partition(arr, callback){ 
+    let arrTrue = []
+    let arrFalse= []
     result = arr.map(val =>{
         callback(val) ? arrTrue.push(val) : arrFalse.push(val)
     })
